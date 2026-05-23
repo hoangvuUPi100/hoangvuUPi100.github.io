@@ -1,8 +1,4 @@
 let price = 100;
-let money = 10000;
-let shares = 0;
-
-const priceText = document.getElementById("price");
 const moneyText = document.getElementById("money");
 const sharesText = document.getElementById("shares");
 const trendText = document.getElementById("trend");
@@ -12,6 +8,16 @@ function updateUI() {
   priceText.innerText = price.toFixed(2) + "$";
   moneyText.innerText = money.toFixed(2);
   sharesText.innerText = shares;
+}
+
+function updatePriceColor(oldPrice) {
+  if (price > oldPrice) {
+    priceText.style.color = "#22c55e";
+  } else if (price < oldPrice) {
+    priceText.style.color = "#ef4444";
+  } else {
+    priceText.style.color = "white";
+  }
 }
 
 function addHistory(text) {
@@ -33,11 +39,15 @@ function randomPrice() {
   if (price > oldPrice) {
     trendText.innerText = "📈 Giá tăng";
     trendText.style.color = "#22c55e";
-  } else {
+  } else if (price < oldPrice) {
     trendText.innerText = "📉 Giá giảm";
     trendText.style.color = "#ef4444";
+  } else {
+    trendText.innerText = "➖ Không đổi";
+    trendText.style.color = "white";
   }
 
+  updatePriceColor(oldPrice);
   updateUI();
 }
 
