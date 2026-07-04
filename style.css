@@ -1,76 +1,266 @@
-body {
-  margin: 0;
-  padding: 0;
-  background: #111827;
-  color: white;
-  font-family: Arial, sans-serif;
+/* ==========================
+   GiftOS v0.1
+   Author: ChatGPT
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-.container {
-  max-width: 700px;
-  margin: auto;
-  padding: 20px;
+html,
+body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    font-family:"Inter",sans-serif;
+    user-select:none;
 }
 
-h1 {
-  text-align: center;
-  margin-bottom: 30px;
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#000;
 }
 
-.money-box,
-.stock-card,
-.history-box {
-  background: #1f2937;
-  padding: 20px;
-  border-radius: 15px;
-  margin-bottom: 20px;
+/* ==========================
+   Background
+========================== */
+
+.background{
+    position:fixed;
+    inset:0;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.25),
+        rgba(0,0,0,.35)
+    ),
+    url("../assets/wallpapers/wallpaper.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    transition:.8s;
+
+    animation:zoomBackground 18s ease-in-out infinite alternate;
 }
 
-.price {
-  font-size: 50px;
-  font-weight: bold;
-  margin-top: 15px;
+@keyframes zoomBackground{
+
+    from{
+
+        transform:scale(1);
+
+    }
+
+    to{
+
+        transform:scale(1.08);
+
+    }
+
 }
 
-.trend {
-  margin-top: 10px;
-  font-size: 20px;
+/* ==========================
+   Floating Hearts
+========================== */
+
+#hearts{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
 }
 
-.buttons {
-  display: flex;
-  gap: 15px;
-  margin-bottom: 20px;
+/* ==========================
+   Lock Screen
+========================== */
+
+#lockscreen{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:70px 30px;
+
+    z-index:10;
+
+    transition:.6s;
+
 }
 
-button {
-  flex: 1;
-  padding: 15px;
-  border: none;
-  border-radius: 10px;
-  font-size: 18px;
-  cursor: pointer;
-  transition: 0.2s;
+.clock{
+
+    text-align:center;
+
+    color:white;
+
 }
 
-button:hover {
-  transform: scale(1.03);
+.clock h1{
+
+    font-size:88px;
+
+    font-weight:300;
+
+    letter-spacing:-3px;
+
 }
 
-button:first-child {
-  background: #22c55e;
-  color: white;
+.clock p{
+
+    margin-top:10px;
+
+    font-size:22px;
+
+    opacity:.95;
+
 }
 
-button:last-child {
-  background: #ef4444;
-  color: white;
+.swipe{
+
+    color:white;
+
+    font-size:17px;
+
+    padding:15px 30px;
+
+    border-radius:50px;
+
+    backdrop-filter:blur(18px);
+
+    background:rgba(255,255,255,.15);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    cursor:pointer;
+
+    transition:.3s;
+
 }
 
-ul {
-  padding-left: 20px;
+.swipe:hover{
+
+    transform:translateY(-6px);
+
+    background:rgba(255,255,255,.22);
+
 }
 
-li {
-  margin-bottom: 10px;
+/* ==========================
+   Passcode
+========================== */
+
+#passcode{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:35px;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transform:translateY(80px);
+
+    transition:.5s;
+
+    z-index:20;
+
+}
+
+#passcode.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:translateY(0);
+
+}
+
+.pin{
+
+    display:flex;
+
+    gap:18px;
+
+}
+
+.dot{
+
+    width:18px;
+
+    height:18px;
+
+    border-radius:50%;
+
+    border:2px solid white;
+
+    background:transparent;
+
+    transition:.25s;
+
+}
+
+.dot.active{
+
+    background:white;
+
+}
+
+#status{
+
+    color:white;
+
+    font-size:18px;
+
+    min-height:24px;
+
+}
+
+/* ==========================
+   Glass
+========================== */
+
+.glass{
+
+    background:rgba(255,255,255,.14);
+
+    backdrop-filter:blur(22px);
+
+    border:1px solid rgba(255,255,255,.18);
+
+    box-shadow:
+
+        0 10px 40px rgba(0,0,0,.25);
+
 }
