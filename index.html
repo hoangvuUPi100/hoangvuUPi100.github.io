@@ -1,38 +1,165 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mô Phỏng Chứng Khoán</title>
-  <link rel="stylesheet" href="style.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GiftOS</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
 </head>
+
 <body>
 
-  <div class="container">
-    <h1>📈 Mô Phỏng Chứng Khoán</h1>
+    <!-- Background -->
 
-    <div class="money-box">
-      <h2>Số dư: <span id="money">10000</span>$</h2>
-      <h2>Cổ phiếu: <span id="shares">0</span></h2>
-    </div>
+    <div class="background"></div>
 
-    <div class="stock-card">
-      <h2>Giá cổ phiếu</h2>
-      <div id="price" class="price">100$</div>
-      <div id="trend" class="trend">Đang cập nhật...</div>
-    </div>
+    <!-- Floating Hearts -->
 
-    <div class="buttons">
-      <button onclick="buyStock()">Mua</button>
-      <button onclick="sellStock()">Bán</button>
-    </div>
+    <div id="hearts"></div>
 
-    <div class="history-box">
-      <h2>Lịch sử</h2>
-      <ul id="history"></ul>
-    </div>
-  </div>
+    <!-- Lock Screen -->
 
-  <script src="script.js"></script>
+    <section id="lockscreen">
+
+        <div class="clock">
+
+            <h1 id="time">00:00</h1>
+
+            <p id="date">Wednesday</p>
+
+        </div>
+
+        <div class="swipe">
+
+            ↑ Vuốt lên để mở khóa
+
+        </div>
+
+    </section>
+
+    <!-- Passcode -->
+
+    <section id="passcode">
+
+        <div class="pin">
+
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+
+        </div>
+
+        <p id="status">
+
+            Nhập mật khẩu
+
+        </p>
+
+        <div class="keypad">
+
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+
+            <button class="empty"></button>
+
+            <button>0</button>
+
+            <button id="delete">⌫</button>
+
+        </div>
+
+    </section>
+
+    <!-- Desktop -->
+
+    <section id="desktop">
+
+        <div class="dock">
+
+            <div class="app">
+
+                🎵
+
+                <span>Music</span>
+
+            </div>
+
+            <div class="app">
+
+                💌
+
+                <span>Letter</span>
+
+            </div>
+
+            <div class="app">
+
+                📷
+
+                <span>Gallery</span>
+
+            </div>
+
+            <div class="app">
+
+                🎁
+
+                <span>Gift</span>
+
+            </div>
+
+            <div class="app">
+
+                🎮
+
+                <span>Game</span>
+
+            </div>
+
+            <div class="app">
+
+                🌙
+
+                <span>Theme</span>
+
+            </div>
+
+            <div class="app">
+
+                ⚙
+
+                <span>Settings</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <script src="js/lockscreen.js"></script>
+
 </body>
+
 </html>
