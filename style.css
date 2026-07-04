@@ -264,3 +264,577 @@ body{
         0 10px 40px rgba(0,0,0,.25);
 
 }
+/* ==========================
+   Keypad
+========================== */
+
+.keypad{
+
+    width:340px;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:18px;
+
+}
+
+.keypad button{
+
+    width:90px;
+
+    height:90px;
+
+    margin:auto;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    font-size:32px;
+
+    color:white;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(20px);
+
+    transition:.2s;
+
+    box-shadow:
+
+    0 8px 20px rgba(0,0,0,.2);
+
+}
+
+.keypad button:hover{
+
+    transform:scale(1.08);
+
+    background:rgba(255,255,255,.25);
+
+}
+
+.keypad button:active{
+
+    transform:scale(.92);
+
+}
+
+.empty{
+
+    opacity:0;
+
+    pointer-events:none;
+
+}
+
+#delete{
+
+    font-size:28px;
+
+}
+
+/* ==========================
+   Desktop
+========================== */
+
+#desktop{
+
+    position:absolute;
+
+    inset:0;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.7s;
+
+    backdrop-filter:blur(0px);
+
+}
+
+#desktop.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+.dock{
+
+    width:100%;
+
+    height:100%;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    justify-items:center;
+
+    align-content:center;
+
+    gap:45px;
+
+}
+
+.app{
+
+    width:120px;
+
+    height:120px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.18);
+
+    backdrop-filter:blur(20px);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    font-size:50px;
+
+    transition:.25s;
+
+    cursor:pointer;
+
+    box-shadow:
+
+    0 15px 30px rgba(0,0,0,.2);
+
+}
+
+.app span{
+
+    margin-top:8px;
+
+    font-size:15px;
+
+}
+
+.app:hover{
+
+    transform:translateY(-10px) scale(1.05);
+
+}
+
+.app:active{
+
+    transform:scale(.93);
+
+}
+
+/* ==========================
+   Unlock Animation
+========================== */
+
+.unlock{
+
+    animation:unlock .8s ease forwards;
+
+}
+
+@keyframes unlock{
+
+    from{
+
+        opacity:1;
+
+        filter:blur(0px);
+
+        transform:scale(1);
+
+    }
+
+    to{
+
+        opacity:0;
+
+        filter:blur(20px);
+
+        transform:scale(1.2);
+
+    }
+
+}
+
+/* ==========================
+   Shake
+========================== */
+
+.shake{
+
+    animation:shake .45s;
+
+}
+
+@keyframes shake{
+
+0%{transform:translateX(0);}
+
+20%{transform:translateX(-8px);}
+
+40%{transform:translateX(8px);}
+
+60%{transform:translateX(-6px);}
+
+80%{transform:translateX(6px);}
+
+100%{transform:translateX(0);}
+
+}
+
+/* ==========================
+   Fade
+========================== */
+
+.fadeOut{
+
+    animation:fadeOut .6s forwards;
+
+}
+
+@keyframes fadeOut{
+
+from{
+
+opacity:1;
+
+}
+
+to{
+
+opacity:0;
+
+}
+
+}
+
+.fadeIn{
+
+animation:fadeIn .7s forwards;
+
+}
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+/* ==========================
+   Floating Hearts
+========================== */
+
+.heart{
+
+    position:absolute;
+
+    bottom:-50px;
+
+    color:#ff5ca8;
+
+    font-size:18px;
+
+    opacity:.8;
+
+    animation:heartFloat linear forwards;
+
+}
+
+@keyframes heartFloat{
+
+    0%{
+
+        transform:
+        translateY(0)
+        scale(.5)
+        rotate(0deg);
+
+        opacity:0;
+
+    }
+
+    15%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:
+        translateY(-120vh)
+        translateX(60px)
+        rotate(360deg)
+        scale(1.4);
+
+        opacity:0;
+
+    }
+
+}
+
+/* ==========================
+   Ripple Effect
+========================== */
+
+.ripple{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.35);
+
+    transform:scale(0);
+
+    animation:ripple .6s linear;
+
+    pointer-events:none;
+
+}
+
+@keyframes ripple{
+
+    to{
+
+        transform:scale(4);
+
+        opacity:0;
+
+    }
+
+}
+
+/* ==========================
+   Glow
+========================== */
+
+.glow{
+
+    box-shadow:
+
+        0 0 15px rgba(255,255,255,.3),
+
+        0 0 40px rgba(255,255,255,.2);
+
+}
+
+/* ==========================
+   Blur Overlay
+========================== */
+
+.blurOverlay{
+
+    position:absolute;
+
+    inset:0;
+
+    backdrop-filter:blur(0px);
+
+    transition:.6s;
+
+    pointer-events:none;
+
+}
+
+.blurOverlay.active{
+
+    backdrop-filter:blur(18px);
+
+}
+
+/* ==========================
+   Unlock Flash
+========================== */
+
+.flash{
+
+    position:absolute;
+
+    inset:0;
+
+    background:white;
+
+    opacity:0;
+
+    pointer-events:none;
+
+}
+
+.flash.show{
+
+    animation:flash .4s;
+
+}
+
+@keyframes flash{
+
+    0%{
+
+        opacity:0;
+
+    }
+
+    30%{
+
+        opacity:.35;
+
+    }
+
+    100%{
+
+        opacity:0;
+
+    }
+
+}
+
+/* ==========================
+   Floating Animation
+========================== */
+
+.float{
+
+    animation:float 4s ease-in-out infinite;
+
+}
+
+@keyframes float{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-10px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================
+   Mobile
+========================== */
+
+@media(max-width:768px){
+
+.clock h1{
+
+    font-size:72px;
+
+}
+
+.clock p{
+
+    font-size:18px;
+
+}
+
+.keypad{
+
+    width:300px;
+
+    gap:14px;
+
+}
+
+.keypad button{
+
+    width:78px;
+
+    height:78px;
+
+    font-size:28px;
+
+}
+
+.app{
+
+    width:95px;
+
+    height:95px;
+
+    font-size:42px;
+
+}
+
+}
+
+/* ==========================
+   Small Phone
+========================== */
+
+@media(max-width:430px){
+
+.clock{
+
+    margin-top:20px;
+
+}
+
+.clock h1{
+
+    font-size:64px;
+
+}
+
+.swipe{
+
+    font-size:15px;
+
+    padding:13px 24px;
+
+}
+
+.keypad{
+
+    width:270px;
+
+}
+
+.keypad button{
+
+    width:72px;
+
+    height:72px;
+
+}
+
+}
