@@ -1,165 +1,104 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Trang web</title>
-
-    <link rel="stylesheet" href="css/style.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-
+    <title>Birthday Surprise 🎂</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Background -->
-
+    <!-- Hiệu ứng nền -->
     <div class="background"></div>
 
-    <!-- Floating Hearts -->
+    <!-- MENU 1 -->
+    <section id="screen1" class="screen active">
+        <div class="card">
+            <div class="emoji-big">🎉</div>
 
-    <div id="hearts"></div>
+            <h1>Hello!</h1>
 
-    <!-- Lock Screen -->
+            <p>
+                Có một điều đặc biệt<br>
+                đang chờ bạn phía trước...
+            </p>
 
-    <section id="lockscreen">
-
-        <div class="clock">
-
-            <h1 id="time">00:00</h1>
-
-            <p id="date">Wednesday</p>
-
+            <button onclick="nextScreen(2)">
+                Tiếp Tục
+                <span>→</span>
+            </button>
         </div>
-
-        <div class="swipe">
-
-            ↑ Vuốt lên để mở khóa
-
-        </div>
-
     </section>
 
-    <!-- Passcode -->
 
-    <section id="passcode">
+    <!-- MENU 2 -->
+    <section id="screen2" class="screen">
+        <div class="card">
+            <div class="emoji-big">🎂</div>
 
-        <div class="pin">
+            <h2>Thông tin sinh nhật</h2>
 
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
+            <p class="subtext">
+                Hãy điền thông tin của bạn nhé!
+            </p>
 
+            <div class="input-group">
+                <label>Tên</label>
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Nhập tên..."
+                >
+            </div>
+
+            <div class="input-group">
+                <label>Ngày sinh</label>
+                <input
+                    type="date"
+                    id="birthday"
+                >
+            </div>
+
+            <button onclick="showBirthday()">
+                Tiếp Tục
+                <span>→</span>
+            </button>
+
+            <p id="error" class="error"></p>
         </div>
-
-        <p id="status">
-
-            Nhập mật khẩu
-
-        </p>
-
-        <div class="keypad">
-
-            <button data-value="1">1</button>
-            <button>2</button>
-            <button>3</button>
-
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
-
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
-
-            <button class="empty"></button>
-
-            <button>0</button>
-
-            <button id="delete">⌫</button>
-
-        </div>
-
     </section>
 
-    <!-- Desktop -->
 
-    <section id="desktop">
+    <!-- MENU 3 -->
+    <section id="screen3" class="screen">
+        <div id="rain-container"></div>
 
-        <div class="dock">
+        <div class="birthday-content">
+            <div class="cake">🎂</div>
 
-            <div class="app">
+            <h1>
+                Chúc mừng sinh nhật
+            </h1>
 
-                🎵
+            <h2 id="birthdayName">
+                Bạn!
+            </h2>
 
-                <span>Music</span>
+            <p>
+                🎉 Chúc bạn có một sinh nhật thật vui vẻ! 🎉
+            </p>
 
-            </div>
+            <p>
+                Mong mọi điều tốt đẹp nhất<br>
+                sẽ đến với bạn 💖
+            </p>
 
-            <div class="app">
-
-                💌
-
-                <span>Letter</span>
-
-            </div>
-
-            <div class="app">
-
-                📷
-
-                <span>Gallery</span>
-
-            </div>
-
-            <div class="app">
-
-                🎁
-
-                <span>Gift</span>
-
-            </div>
-
-            <div class="app">
-
-                🎮
-
-                <span>Game</span>
-
-            </div>
-
-            <div class="app">
-
-                🌙
-
-                <span>Theme</span>
-
-            </div>
-
-            <div class="app">
-
-                ⚙
-
-                <span>Settings</span>
-
-            </div>
-
+            <div class="heart">❤️</div>
         </div>
-
     </section>
 
-    <script src="js/lockscreen.js"></script>
 
+    <script src="script.js"></script>
 </body>
-
 </html>
