@@ -1,0 +1,445 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    background: #12001f;
+    color: white;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 20%, #ff7eb3, transparent 30%),
+        radial-gradient(circle at 80% 30%, #7c4dff, transparent 30%),
+        radial-gradient(circle at 50% 90%, #ff4ecd, transparent 35%),
+        linear-gradient(135deg, #16001f, #250044, #14001e);
+    z-index: -2;
+}
+
+.background::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(40px);
+}
+
+
+/* =========================
+   SCREEN
+========================= */
+
+.screen {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transform: scale(1.05);
+
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
+}
+
+.screen.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+    width: min(420px, 100%);
+
+    padding: 40px 30px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    border-radius: 30px;
+
+    backdrop-filter: blur(25px);
+
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.35);
+
+    animation: cardFloat 4s ease-in-out infinite;
+}
+
+@keyframes cardFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+/* =========================
+   TEXT
+========================= */
+
+.emoji-big {
+    font-size: 70px;
+    margin-bottom: 15px;
+
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+
+    0%, 100% {
+        transform: translateY(0) rotate(0);
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(5deg);
+    }
+}
+
+h1 {
+    font-size: 46px;
+    margin-bottom: 15px;
+
+    background: linear-gradient(
+        90deg,
+        #fff,
+        #ffd0ed,
+        #fff
+    );
+
+    background-size: 200%;
+
+    -webkit-background-clip: text;
+    color: transparent;
+
+    animation: shine 3s infinite;
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+@keyframes shine {
+
+    0% {
+        background-position: 0%;
+    }
+
+    50% {
+        background-position: 100%;
+    }
+
+    100% {
+        background-position: 0%;
+    }
+}
+
+p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.subtext {
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   INPUT
+========================= */
+
+.input-group {
+    text-align: left;
+    margin-bottom: 18px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+
+    font-size: 14px;
+    color: #ffd6ef;
+}
+
+.input-group input {
+    width: 100%;
+
+    padding: 15px 16px;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    border-radius: 15px;
+
+    outline: none;
+
+    background: rgba(255, 255, 255, 0.10);
+
+    color: white;
+
+    font-size: 16px;
+
+    transition: 0.3s;
+}
+
+.input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.input-group input:focus {
+    border-color: #ff9bd3;
+
+    background: rgba(255, 255, 255, 0.15);
+
+    box-shadow:
+        0 0 20px rgba(255, 105, 180, 0.25);
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+button {
+    width: 100%;
+
+    margin-top: 15px;
+
+    padding: 16px;
+
+    border: none;
+
+    border-radius: 16px;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff4fa3,
+            #8b5cf6
+        );
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 30px rgba(255, 79, 163, 0.3);
+
+    transition: 0.25s;
+}
+
+button span {
+    margin-left: 8px;
+}
+
+button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 35px rgba(255, 79, 163, 0.45);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+
+/* =========================
+   ERROR
+========================= */
+
+.error {
+    margin-top: 12px;
+
+    font-size: 14px;
+
+    color: #ff9dbd;
+}
+
+
+/* =========================
+   SCREEN 3
+========================= */
+
+#screen3 {
+    overflow: hidden;
+}
+
+.birthday-content {
+    position: relative;
+
+    z-index: 10;
+
+    text-align: center;
+
+    padding: 40px 20px;
+
+    max-width: 700px;
+}
+
+.cake {
+    font-size: 100px;
+
+    animation:
+        cakeFloat 2s ease-in-out infinite,
+        cakeRotate 4s ease-in-out infinite;
+}
+
+@keyframes cakeFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes cakeRotate {
+
+    0%, 100% {
+        rotate: -4deg;
+    }
+
+    50% {
+        rotate: 4deg;
+    }
+}
+
+.birthday-content h1 {
+    font-size: clamp(35px, 7vw, 65px);
+}
+
+.birthday-content h2 {
+    font-size: clamp(40px, 8vw, 75px);
+
+    color: #ffd1eb;
+
+    text-shadow:
+        0 0 20px rgba(255, 150, 210, 0.8);
+}
+
+.heart {
+    font-size: 40px;
+
+    margin-top: 20px;
+
+    animation: heartBeat 1s infinite;
+}
+
+@keyframes heartBeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.3);
+    }
+}
+
+
+/* =========================
+   RAIN
+========================= */
+
+#rain-container {
+    position: absolute;
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+.rain-item {
+    position: absolute;
+
+    top: -100px;
+
+    user-select: none;
+
+    animation-name: fall;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fall {
+
+    0% {
+        transform:
+            translateY(-100px)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(110vh)
+            rotate(360deg);
+
+        opacity: 0.9;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .card {
+        padding: 35px 22px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    .emoji-big {
+        font-size: 60px;
+    }
+
+    .birthday-content p {
+        font-size: 15px;
+    }
+}
