@@ -130,17 +130,34 @@ h1 {
 
     background: linear-gradient(
         90deg,
-        #fff,
+        #ffffff,
         #ffd0ed,
-        #fff
+        #ffffff
     );
 
     background-size: 200%;
 
     -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
     color: transparent;
 
     animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% {
+        background-position: 0%;
+    }
+
+    50% {
+        background-position: 100%;
+    }
+
+    100% {
+        background-position: 0%;
+    }
 }
 
 h2 {
